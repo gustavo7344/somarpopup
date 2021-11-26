@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificaro</title>
+    <style>
+        .op1{
+            text-decoration: none;
+            background: rebeccapurple;
+            color: white;
+            padding: 10px;
+            margin: 11px;
+        }
+
+        .tela{
+            position: absolute;
+            background: yellowgreen;
+            max-width: 500px;
+            height: 500px;
+            width: auto;
+            display: none;
+            margin: 10px;
+            padding: 10px;
+            z-index: 1;
+        }
+        .res{
+            background: white;
+            color: black;
+            margin-top: 10px;
+            font: 15pt 'arial';
+        }
+
+        .fechar{
+            background: blue;
+            text-align: center;
+           width: 100px;
+           height: 50px;
+           line-height: 50px;
+           cursor: pointer;
+        }
+
+        .telavel{
+            background: green;
+            margin-top: 10px;
+            max-width: 500px;
+            height: 500px;
+            width: auto;
+            padding: 10px;
+            display: none;
+            position: absolute;
+            z-index: 2;
+        }
+        .fechar2{
+            background: blue;
+            text-align: center;
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+            cursor: pointer;
+        }
+        .res2{
+            color: black;
+            margin-top: 10px;
+            font: 15pt 'arial';
+            padding: 10px;
+        }
+
+        .fechar3{
+            background: blue;
+            text-align: center;
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+            cursor: pointer;
+        }
+
+        .telapais{
+            background: darkcyan;
+            margin-top: 10px;
+            max-width: 500px;
+            height: 500px;
+            width: auto;
+            padding: 10px;
+            display: none;
+            position: absolute;
+            z-index: 3;
+        }
+
+        .res3{
+            color: black;
+            margin-top: 10px;
+            font: 15pt 'arial';
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    
+    <section>
+        <a class="op1" href="#" onclick="chama()">Somar</a>
+
+        <a class="op1" href="#" onclick="chama2()">Velocidade</a>
+
+        <a class="op1" href="#" onclick="chama3()">Pais</a>
+    </section>
+
+    <div id="tela" class="tela">
+        <div id="fechar" class="fechar" onclick="fechar()"><p>Fechar</p></div>
+        <h2>Somar</h2>
+        <input type="number" name="txtn1" id="txtn1" placeholder="Digite um numeo "> +
+        <input type="number" name="txtn2" id="txtn2" placeholder="Digite outro numero">
+        <input type="button" value="Somar" onclick="somar()">
+        <div id="res" class="res">  </div>
+    </div>
+
+    <div id="telavel" class="telavel">
+        <div id="fechar2" class="fechar2" onclick="fechar2()">Fechar</div>
+        <h2>Teste de velocidade! </h2>
+        Qual a sua velocidade ? <input type="number" name="txtvel" id="txtvel"></br>
+        <input type="button" value="verificar" onclick="velo01()">
+        <div id="res2" class="res2"></div>
+    </div>
+
+    <div id="telapais" class="telapais">
+        <div id="fechar3" class="fechar3" onclick="fechar3()">Fechar</div>
+        <h2>Qual e o seu pais ?</h2>
+        <input type="text" name="pais" id="pais">
+        <input type="button" value="verificar" onclick="pais10()">
+        <div id="res3" class="res3"></div>
+    </div>
+    
+    <script>
+
+function fechar() {
+    tela.style.display = 'none'
+}
+
+function chama() {
+    tela.style.display = 'block'
+}
+
+function somar() {
+    var tn1 = window.document.getElementById('txtn1')
+    var tn2 = window.document.getElementById('txtn2')
+
+    var n1 = Number(tn1.value)
+    var n2 = Number(tn2.value)
+
+    var gu = n1 + n2
+
+    res.innerHTML = `Somando ${n1} com ${n2} o resultado e ${gu}`
+}
+
+function velo01() {
+    var fe = window.document.getElementById('txtvel')
+    var g1 = Number(fe.value)
+
+    if (g1 > 60){
+        res2.innerHTML = `Sua velocidade e <strong>${g1} Km/h você foi multado!</strong> `
+    } else if (g1 < 60 ){
+        res2.innerHTML = `Sua velocidade e ${g1} Km/h dirija sempre com cuidado!`
+    }
+
+    res2.style.background = 'white'
+}
+
+function fechar2() {
+    telavel.style.display = 'none'
+}
+
+function chama2() {
+    telavel.style.display = 'block'
+}
+
+function pais10() {
+    var n3 = window.document.getElementById('pais').value
+    if (n3 == 'Brasil'){
+        res3.innerHTML = `${n3} você e brasileiro!`
+    } else if (n3 != 'Brasil'){
+        res3.innerHTML = `${n3} você e estrangeiro!`
+    }
+
+    res3.style.background = 'white'
+}
+
+function chama3() {
+    telapais.style.display = 'block'
+}
+function fechar3(params) {
+    telapais.style.display = 'none'
+}
+    </script>
+
+</body>
+</html>
